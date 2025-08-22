@@ -201,6 +201,7 @@ nav ul li a:hover::after {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    cursor: pointer;
 }
 
 .btn::before {
@@ -357,6 +358,7 @@ section.visible {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    cursor: pointer;
 }
 
 .meaning-item::before {
@@ -371,12 +373,12 @@ section.visible {
     z-index: -1;
 }
 
-.meaning-item:hover {
+.meaning-item:hover, .meaning-item.touch-active {
     transform: translateY(-10px);
     color: white;
 }
 
-.meaning-item:hover::before {
+.meaning-item:hover::before, .meaning-item.touch-active::before {
     height: 100%;
 }
 
@@ -387,7 +389,7 @@ section.visible {
     transition: var(--transition);
 }
 
-.meaning-item:hover h4 {
+.meaning-item:hover h4, .meaning-item.touch-active h4 {
     color: white;
 }
 
@@ -476,9 +478,10 @@ section.visible {
     transition: var(--transition);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
-.value-item:hover {
+.value-item:hover, .value-item.touch-active {
     transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.15);
 }
@@ -509,9 +512,10 @@ section.visible {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
+    cursor: pointer;
 }
 
-.principle-item:hover {
+.principle-item:hover, .principle-item.touch-active {
     transform: translateX(10px);
 }
 
@@ -536,9 +540,10 @@ section.visible {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
+    cursor: pointer;
 }
 
-.goal-item:hover {
+.goal-item:hover, .goal-item.touch-active {
     transform: translateY(-10px);
 }
 
@@ -563,6 +568,7 @@ section.visible {
     transition: var(--transition);
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
 .service-card::before {
@@ -577,12 +583,12 @@ section.visible {
     z-index: -1;
 }
 
-.service-card:hover {
+.service-card:hover, .service-card.touch-active {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.service-card:hover::before {
+.service-card:hover::before, .service-card.touch-active::before {
     height: 100%;
 }
 
@@ -595,7 +601,7 @@ section.visible {
     transition: var(--transition);
 }
 
-.service-card:hover .service-icon {
+.service-card:hover .service-icon, .service-card.touch-active .service-icon {
     background: linear-gradient(135deg, var(--primary-light), var(--primary));
 }
 
@@ -609,7 +615,7 @@ section.visible {
     transition: var(--transition);
 }
 
-.service-card:hover .service-content h3 {
+.service-card:hover .service-content h3, .service-card.touch-active .service-content h3 {
     color: var(--accent);
 }
 
@@ -628,9 +634,10 @@ section.visible {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     transform: perspective(1000px) rotateX(0) rotateY(0);
     transition: var(--transition);
+    cursor: pointer;
 }
 
-.portfolio-item:hover {
+.portfolio-item:hover, .portfolio-item.touch-active {
     transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
@@ -659,11 +666,11 @@ section.visible {
     text-align: center;
 }
 
-.portfolio-item:hover .portfolio-overlay {
+.portfolio-item:hover .portfolio-overlay, .portfolio-item.touch-active .portfolio-overlay {
     opacity: 1;
 }
 
-.portfolio-item:hover .portfolio-img {
+.portfolio-item:hover .portfolio-img, .portfolio-item.touch-active .portfolio-img {
     transform: scale(1.1);
 }
 
@@ -683,7 +690,9 @@ section.visible {
 }
 
 .portfolio-item:hover .portfolio-overlay h3,
-.portfolio-item:hover .portfolio-overlay p {
+.portfolio-item:hover .portfolio-overlay p,
+.portfolio-item.touch-active .portfolio-overlay h3,
+.portfolio-item.touch-active .portfolio-overlay p {
     transform: translateY(0);
 }
 
@@ -733,9 +742,10 @@ section.visible {
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: var(--transition);
+    cursor: pointer;
 }
 
-.testimonial-card:hover {
+.testimonial-card:hover, .testimonial-card.touch-active {
     transform: translateY(-10px);
     background-color: rgba(255, 255, 255, 0.15);
 }
@@ -772,7 +782,7 @@ section.visible {
 }
 
 .author-details h4 {
-    color: var(--accept);
+    color: var(--accent);
     margin-bottom: 0.3rem;
 }
 
@@ -1039,6 +1049,22 @@ footer {
         flex-direction: column;
     }
     
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .contact-details p {
+        font-size: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-control {
+        padding: 0.8rem 1rem;
+    }
+    
     .tabs {
         flex-direction: column;
         align-items: center;
@@ -1048,6 +1074,7 @@ footer {
         width: 100%;
         text-align: center;
         margin-bottom: 0.5rem;
+        padding: 0.8rem 1rem;
     }
     
     .values-grid, .goals-grid {
@@ -1064,5 +1091,68 @@ footer {
     
     .footer-container {
         grid-template-columns: 1fr;
+    }
+    
+    /* Mobile-specific improvements */
+    .meaning-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card, .value-item, .goal-item, .principle-item {
+        transition: none;
+    }
+    
+    .service-card:active, .value-item:active, .goal-item:active, 
+    .principle-item:active, .portfolio-item:active, .testimonial-card:active {
+        transform: scale(0.98);
+    }
+    
+    /* Improved touch targets */
+    .tab-btn, .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Prevent zoom on input focus */
+    input, select, textarea {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 10rem 0 6rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title p {
+        font-size: 1rem;
+    }
+    
+    .contact-info, .contact-form {
+        min-width: 100%;
+    }
+    
+    .social-links a {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
     }
 }

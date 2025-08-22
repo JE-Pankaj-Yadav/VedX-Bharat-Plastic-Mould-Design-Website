@@ -103,3 +103,100 @@ tabBtns.forEach(btn => {
         document.getElementById(`${tabId}-content`).classList.add('active');
     });
 });
+
+// Mobile hover simulation for touch devices
+function handleTouchInteractions() {
+    if ('ontouchstart' in window) {
+        // Elements that need touch simulation
+        const touchElements = [
+            '.meaning-item',
+            '.value-item',
+            '.principle-item',
+            '.goal-item',
+            '.service-card',
+            '.portfolio-item',
+            '.testimonial-card'
+        ];
+        
+        // Add touch event listeners to all elements
+        touchElements.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            
+            elements.forEach(element => {
+                // Touch start
+                element.addEventListener('touchstart', function() {
+                    this.classList.add('touch-active');
+                }, {passive: true});
+                
+                // Touch end
+                element.addEventListener('touchend', function() {
+                    this.classList.remove('touch-active');
+                }, {passive: true});
+                
+                // Touch cancel
+                element.addEventListener('touchcancel', function() {
+                    this.classList.remove('touch-active');
+                }, {passive: true});
+            });
+        });
+        
+        // Make all buttons more touch-friendly
+        const buttons = document.querySelectorAll('button, .btn, .tab-btn');
+        buttons.forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.classList.add('touch-active');
+            }, {passive: true});
+            
+            button.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+            }, {passive: true});
+        });
+    }
+}
+
+// Initialize touch interactions
+document.addEventListener('DOMContentLoaded', function() {
+    handleTouchInteractions();
+    
+    // Add a class to body if it's a touch device
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+    } else {
+        document.body.classList.add('non-touch-device');
+    }
+});
+
+// Prevent sticky hover on mobile devices
+function removeHoverEffectsOnTouch() {
+    if ('ontouchstart' in window) {
+        // Remove all hover styles for touch devices
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (hover: none) {
+                .meaning-item:hover,
+                .value-item:hover,
+                .principle-item:hover,
+                .goal-item:hover,
+                .service-card:hover,
+                .portfolio-item:hover,
+                .testimonial-card:hover {
+                    transform: none !important;
+                }
+                
+                .meaning-item:hover::before,
+                .value-item:hover,
+                .principle-item:hover,
+                .goal-item:hover,
+                .service-card:hover::before,
+                .portfolio-item:hover .portfolio-overlay,
+                .testimonial-card:hover {
+                    /* Reset hover styles for touch devices */
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Call the function to remove hover effects on touch devices
+removeHoverEffectsOnTouch();
