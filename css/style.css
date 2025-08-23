@@ -1156,3 +1156,124 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+/* Add this to your existing CSS file */
+
+/* Symbol explanation styling */
+.symbol-explanation {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: rgba(26, 54, 93, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+}
+
+.symbol-explanation h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Services note styling */
+.services-note {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: rgba(214, 158, 46, 0.1);
+    border-radius: 10px;
+    font-style: italic;
+}
+
+.services-note p {
+    margin: 0;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Additional service card styling for new services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* File input styling */
+.form-group input[type="file"] {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Add these to your existing media queries if needed */
+@media (max-width: 768px) {
+    .symbol-explanation {
+        padding: 1rem;
+    }
+    
+    .services-note {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+/* Inbox message styling */
+.inbox-message {
+    transition: all 0.3s ease;
+}
+
+.inbox-message:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Inbox container styling */
+.inbox-review {
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#inboxMessages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
+
+/* Scrollbar styling for inbox */
+#inboxMessages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#inboxMessages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+#inboxMessages::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+#inboxMessages::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-light);
+}
+
+/* Clear button styling */
+.inbox-review button {
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.inbox-review button:hover {
+    background: var(--accent-light);
+    transform: translateY(-2px);
+}
