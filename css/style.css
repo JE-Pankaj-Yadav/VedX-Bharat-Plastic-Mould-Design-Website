@@ -136,6 +136,53 @@ nav ul li a:hover::after {
 }
 
 /* Hero Section */
+/* Add to your existing CSS */
+.hero {
+    padding: 8rem 0 5rem;
+    min-height: auto;
+}
+
+.hero-tagline {
+    margin-top: 2rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 7rem 0 4rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-tagline {
+        font-size: 0.9rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 6rem 0 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+}
+
 .hero {
     background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
     background-size: cover;
@@ -341,6 +388,7 @@ section.visible {
     transform: perspective(1000px) rotateY(0);
 }
 
+/* Update the meaning grid layout */
 .meaning-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -359,6 +407,10 @@ section.visible {
     overflow: hidden;
     z-index: 1;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .meaning-item::before {
@@ -383,14 +435,55 @@ section.visible {
 }
 
 .meaning-item h4 {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Larger font size for the letter */
     margin-bottom: 0.5rem;
     color: var(--primary);
     transition: var(--transition);
+    font-weight: 700;
+    line-height: 1;
 }
 
 .meaning-item:hover h4, .meaning-item.touch-active h4 {
     color: white;
+}
+
+.meaning-item p {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .meaning-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .meaning-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .meaning-item h4 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .meaning-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .meaning-item {
+        padding: 1.2rem;
+    }
+    
+    .meaning-item h4 {
+        font-size: 2.2rem;
+    }
 }
 
 /* Vision & Values Section */
@@ -1217,63 +1310,3 @@ footer {
     }
 }
 
-/* Inbox message styling */
-.inbox-message {
-    transition: all 0.3s ease;
-}
-
-.inbox-message:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Inbox container styling */
-.inbox-review {
-    margin-top: 30px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-#inboxMessages {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 15px;
-    padding-right: 10px;
-}
-
-/* Scrollbar styling for inbox */
-#inboxMessages::-webkit-scrollbar {
-    width: 6px;
-}
-
-#inboxMessages::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
-}
-
-#inboxMessages::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 3px;
-}
-
-#inboxMessages::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-light);
-}
-
-/* Clear button styling */
-.inbox-review button {
-    background: var(--accent);
-    color: var(--primary);
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
-}
-
-.inbox-review button:hover {
-    background: var(--accent-light);
-    transform: translateY(-2px);
-}

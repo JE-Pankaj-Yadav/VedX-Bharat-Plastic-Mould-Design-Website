@@ -33,21 +33,59 @@ function checkScroll() {
 window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
 
-// Mobile menu toggle
-const menuBtn = document.querySelector('.mobile-menu-btn');
-const nav = document.querySelector('nav ul');
+// Improved mobile menu functionality with outside click/scroll detection
+document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav ul');
+    const header = document.querySelector('header');
 
-menuBtn.addEventListener('click', function () {
-    nav.classList.toggle('show');
-});
+    // Toggle menu function
+    function toggleMenu() {
+        nav.classList.toggle('show');
+        menuBtn.querySelector('i').classList.toggle('fa-bars');
+        menuBtn.querySelector('i').classList.toggle('fa-times');
+    }
 
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('nav ul li a');
-navLinks.forEach(link => {
-    link.addEventListener('click', function () {
-        if (window.innerWidth <= 768) {
-            nav.classList.remove('show');
+    // Close menu function
+    function closeMenu() {
+        nav.classList.remove('show');
+        menuBtn.querySelector('i').classList.add('fa-bars');
+        menuBtn.querySelector('i').classList.remove('fa-times');
+    }
+
+    // Mobile menu button click
+    menuBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (event) {
+        const isClickInsideMenu = nav.contains(event.target) || menuBtn.contains(event.target);
+        if (!isClickInsideMenu && nav.classList.contains('show')) {
+            closeMenu();
         }
+    });
+
+    // Close menu when scrolling
+    let scrollTimeout;
+    window.addEventListener('scroll', function () {
+        if (nav.classList.contains('show')) {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function () {
+                closeMenu();
+            }, 150);
+        }
+    });
+
+    // Close menu when a nav link is clicked (for single page navigation)
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) {
+                closeMenu();
+            }
+        });
     });
 });
 
@@ -78,7 +116,34 @@ document.querySelector('.scroll-top').addEventListener('click', function (e) {
     });
 });
 
-// Updated form submission function
+// Update the toggleSubOptions function in script.js
+function toggleSubOptions() {
+    const serviceType = document.getElementById('serviceType').value;
+    const subOptionsContainer = document.getElementById('subOptionsContainer');
+    const allSubOptions = document.querySelectorAll('.sub-options');
+
+    allSubOptions.forEach(option => {
+        option.style.display = 'none';
+    });
+
+    if (serviceType === 'part-design') {
+        subOptionsContainer.style.display = 'block';
+        document.getElementById('partDesignOptions').style.display = 'block';
+    } else if (serviceType === 'mold-design') {
+        subOptionsContainer.style.display = 'block';
+        document.getElementById('moldDesignOptions').style.display = 'block';
+    } else if (serviceType === 'mold-rectification') {
+        subOptionsContainer.style.display = 'block';
+        document.getElementById('moldRectificationOptions').style.display = 'block';
+    } else if (serviceType) {
+        // Show the container for other service types but hide specific sub-options
+        subOptionsContainer.style.display = 'block';
+    } else {
+        subOptionsContainer.style.display = 'none';
+    }
+}
+
+// Update form submission to handle case when no service type is selected
 document.getElementById('quoteForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -87,11 +152,16 @@ document.getElementById('quoteForm').addEventListener('submit', function (e) {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const serviceType = document.getElementById('serviceType').value;
-    const application = document.getElementById('application').value;
-    const volume = document.getElementById('volume').value;
-    const material = document.getElementById('material').value;
-    const timeline = document.getElementById('timeline').value;
-    const message = document.getElementById('message').value;
+
+    // Only get these values if service type is selected
+    let application, volume, material, timeline, message;
+    if (serviceType) {
+        application = document.getElementById('application').value;
+        volume = document.getElementById('volume').value;
+        material = document.getElementById('material').value;
+        timeline = document.getElementById('timeline').value;
+        message = document.getElementById('message').value;
+    }
 
     // Get selected sub-options
     let subOptions = [];
@@ -111,7 +181,7 @@ document.getElementById('quoteForm').addEventListener('submit', function (e) {
 
     // Show success popup instead of alert
     showSuccessModal();
-    
+
     // Reset form
     this.reset();
 
@@ -125,14 +195,9 @@ const tabContents = document.querySelectorAll('.tab-content');
 
 tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Remove active class from all buttons and contents
         tabBtns.forEach(b => b.classList.remove('active'));
         tabContents.forEach(c => c.classList.remove('active'));
-
-        // Add active class to clicked button
         btn.classList.add('active');
-
-        // Show corresponding content
         const tabId = btn.getAttribute('data-tab');
         document.getElementById(`${tabId}-content`).classList.add('active');
     });
@@ -141,7 +206,6 @@ tabBtns.forEach(btn => {
 // Mobile hover simulation for touch devices
 function handleTouchInteractions() {
     if ('ontouchstart' in window) {
-        // Elements that need touch simulation
         const touchElements = [
             '.meaning-item',
             '.value-item',
@@ -152,29 +216,24 @@ function handleTouchInteractions() {
             '.testimonial-card'
         ];
 
-        // Add touch event listeners to all elements
         touchElements.forEach(selector => {
             const elements = document.querySelectorAll(selector);
 
             elements.forEach(element => {
-                // Touch start
                 element.addEventListener('touchstart', function () {
                     this.classList.add('touch-active');
                 }, { passive: true });
 
-                // Touch end
                 element.addEventListener('touchend', function () {
                     this.classList.remove('touch-active');
                 }, { passive: true });
 
-                // Touch cancel
                 element.addEventListener('touchcancel', function () {
                     this.classList.remove('touch-active');
                 }, { passive: true });
             });
         });
 
-        // Make all buttons more touch-friendly
         const buttons = document.querySelectorAll('button, .btn, .tab-btn');
         buttons.forEach(button => {
             button.addEventListener('touchstart', function () {
@@ -188,11 +247,8 @@ function handleTouchInteractions() {
     }
 }
 
-// Initialize touch interactions
 document.addEventListener('DOMContentLoaded', function () {
     handleTouchInteractions();
-
-    // Add a class to body if it's a touch device
     if ('ontouchstart' in window) {
         document.body.classList.add('touch-device');
     } else {
@@ -203,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Prevent sticky hover on mobile devices
 function removeHoverEffectsOnTouch() {
     if ('ontouchstart' in window) {
-        // Remove all hover styles for touch devices
         const style = document.createElement('style');
         style.textContent = `
             @media (hover: none) {
@@ -225,28 +280,4 @@ function removeHoverEffectsOnTouch() {
 
 removeHoverEffectsOnTouch();
 
-// Function to toggle sub-options based on service type selection
-function toggleSubOptions() {
-    const serviceType = document.getElementById('serviceType').value;
-    const subOptionsContainer = document.getElementById('subOptionsContainer');
-    const allSubOptions = document.querySelectorAll('.sub-options');
-    
-    // Hide all sub-options first
-    allSubOptions.forEach(option => {
-        option.style.display = 'none';
-    });
-    
-    // Show relevant sub-options based on selection
-    if (serviceType === 'part-design') {
-        subOptionsContainer.style.display = 'block';
-        document.getElementById('partDesignOptions').style.display = 'block';
-    } else if (serviceType === 'mold-design') {
-        subOptionsContainer.style.display = 'block';
-        document.getElementById('moldDesignOptions').style.display = 'block';
-    } else if (serviceType === 'mold-rectification') {
-        subOptionsContainer.style.display = 'block';
-        document.getElementById('moldRectificationOptions').style.display = 'block';
-    } else {
-        subOptionsContainer.style.display = 'none';
-    }
-}
+

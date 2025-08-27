@@ -46,8 +46,8 @@
             <div class="hero-buttons">
                 <a href="#contact" class="btn">Get a Quote</a>
                 <a href="#services" class="btn btn-outline">Our Services</a>
-            </div><br><br><br>
-            <P>Trusted by startups | Mold design for mass production | One time delivery.</P>
+            </div><br>
+            <p class="hero-tagline">Trusted by startups | Mold design for mass production | One time delivery.</p>
         </div>
     </section>
 
@@ -416,7 +416,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - Updated Form -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
@@ -469,7 +469,7 @@
                             </select>
                         </div>
 
-                        <!-- Sub-options container -->
+                        <!-- Sub-options container - Updated to include all additional fields -->
                         <div id="subOptionsContainer"
                             style="display: none; margin-bottom: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
                             <div id="partDesignOptions" class="sub-options">
@@ -526,32 +526,34 @@
                                     </label>
                                 </div>
                             </div>
+
+                            <!-- Moved additional fields inside the sub-options container -->
+                            <div class="form-group">
+                                <label for="application">Product Application *</label>
+                                <input type="text" id="application" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="volume">Estimated Production Volume *</label>
+                                <input type="text" id="volume" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="material">Preferred Material</label>
+                                <input type="text" id="material" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Project Timeline</label>
+                                <input type="text" id="timeline" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Project Details</label>
+                                <textarea id="message" class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="file">Upload 2D/3D Files (optional)</label>
+                                <input type="file" id="file" class="form-control">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="application">Product Application *</label>
-                            <input type="text" id="application" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="volume">Estimated Production Volume *</label>
-                            <input type="text" id="volume" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="material">Preferred Material</label>
-                            <input type="text" id="material" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="timeline">Project Timeline</label>
-                            <input type="text" id="timeline" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" class="form-control" rows="4"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="file">Upload 2D/3D Files (optional)</label>
-                            <input type="file" id="file" class="form-control">
-                        </div>
                         <button type="submit" class="btn">Submit Request</button>
                     </form>
                 </div>
@@ -560,14 +562,16 @@
     </section>
 
     <!-- Success Popup Modal -->
-    <div id="successModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center;">
+    <div id="successModal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center;">
         <div style="background-color: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px;">
             <div style="font-size: 48px; color: #4CAF50; margin-bottom: 20px;">
                 <i class="fas fa-check-circle"></i>
             </div>
             <h2 style="color: #1a365d; margin-bottom: 15px;">Submitted Successful</h2>
             <p style="margin-bottom: 25px;">Thank you for your inquiry! We will get back to you soon.</p>
-            <button onclick="closeSuccessModal()" class="btn" style="background-color: #1a365d; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer;">OK</button>
+            <button onclick="closeSuccessModal()" class="btn"
+                style="background-color: #1a365d; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer;">OK</button>
         </div>
     </div>
 
@@ -637,20 +641,20 @@
         }
 
         // Close mobile menu when clicking outside or scrolling
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const menuBtn = document.querySelector('.mobile-menu-btn');
             const nav = document.querySelector('nav ul');
-            
+
             // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 const isClickInsideMenu = nav.contains(event.target) || menuBtn.contains(event.target);
                 if (!isClickInsideMenu && nav.classList.contains('show')) {
                     nav.classList.remove('show');
                 }
             });
-            
+
             // Close menu when scrolling
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 if (nav.classList.contains('show')) {
                     nav.classList.remove('show');
                 }
