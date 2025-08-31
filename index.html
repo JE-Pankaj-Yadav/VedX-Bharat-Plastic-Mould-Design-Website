@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body>
@@ -39,13 +40,14 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="particles-container"></div>
         <div class="container">
-            <h1>Precision Plastic Mould Design Solutions</h1>
-            <p>VedX Bharat is your trusted partner in custom plastic mould design, combining ancient Vedic wisdom with
-                modern technological excellence.</p>
+            <h1>Innovative Design Solution</h1>
+            <p>VedX Bharat is your trusted partner in custom <b>Precision</b> plastic mold design, combining ancient
+                Vedic wisdom with modern technological excellence.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn">Get a Quote</a>
                 <a href="#services" class="btn btn-outline">Our Services</a>
+                <a href="#contact" class="btn">Get a Quote</a>
             </div><br>
             <p class="hero-tagline">Trusted by startups | Mold design for mass production | One time delivery.</p>
         </div>
@@ -56,7 +58,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>About VedX Bharat</h2>
-                <p>Established on 1 January 2023 by experienced mould designers Prabal Dwivedi & Yashveer Singh</p>
+                <p>Established on 1 January 2023 by experienced designers Yashveer Singh & Prabal Dwivedi</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
@@ -98,7 +100,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    <img src="./image/About section.jpg"
                         alt="Mould Design Process">
                 </div>
             </div>
@@ -247,10 +249,14 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
-                <p>Comprehensive mould design solutions for diverse industrial applications</p>
+                <p>Comprehensive design solutions for diverse industrial applications</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/Injection Mould Design.jpg"
+                            alt="Injection Mould Design" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-cube"></i>
                     </div>
@@ -262,6 +268,10 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/Sheet metal tool design.jpg"
+                            alt="Sheet Metal Tool Design" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
@@ -273,6 +283,10 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/CAD Modeling & Drafting.jpg"
+                            alt="CAD Modeling & Drafting" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-drafting-compass"></i>
                     </div>
@@ -284,6 +298,10 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/Mould flow 1.jpg"
+                            alt="Mould Flow Analysis" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-water"></i>
                     </div>
@@ -295,6 +313,10 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/Prototype tool.jpg"
+                            alt="Prototype & Tool Validation" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
@@ -305,6 +327,10 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/jigs and fixtures.jpg"
+                            alt="Jigs & Fixtures" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
@@ -315,6 +341,10 @@
                 </div>
 
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="./image/Mould Modification.jpg"
+                            alt="Mould Modification & Repair" loading="lazy">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
@@ -340,34 +370,42 @@
                 <p>A glimpse into our expertise and completed projects</p>
             </div>
             <div class="portfolio-grid">
+                <!-- Update this image -->
                 <div class="portfolio-item">
-                    <img src="./image/Shampoo Bottle Cap.jpg" alt="Shampoo Bottle Cap" class="portfolio-img">
+                    <img src="./image/Shampoo Bottle Cap.jpg" data-src="./image/Shampoo Bottle Cap.jpg"
+                        class="portfolio-img lazy-load" alt="Shampoo Bottle Cap">
                     <div class="portfolio-overlay">
                         <h3>Shampoo Bottle Cap</h3>
                         <p>Optimized for fast cooling and high-volume runs</p>
                     </div>
                 </div>
 
+                <!-- Update this image -->
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        alt="Smartphone Shell" class="portfolio-img">
+                        data-src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="portfolio-img lazy-load" alt="Smartphone Shell">
                     <div class="portfolio-overlay">
                         <h3>Smartphone Shell</h3>
                         <p>High detail and dimensional accuracy</p>
                     </div>
                 </div>
 
+                <!-- Update this image -->
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        alt="Automotive AC Vent" class="portfolio-img">
+                        data-src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="portfolio-img lazy-load" alt="Automotive AC Vent">
                     <div class="portfolio-overlay">
                         <h3>Automotive AC Vent</h3>
                         <p>Multi-cavity, durable, and cycle-optimized</p>
                     </div>
                 </div>
 
+                <!-- Update this image -->
                 <div class="portfolio-item">
-                    <img src="./image/pet-bottles-600.jpg" alt="PET Bottles" class="portfolio-img">
+                    <img src="./image/pet-bottles-600.jpg" data-src="./image/pet-bottles-600.jpg"
+                        class="portfolio-img lazy-load" alt="PET Bottles">
                     <div class="portfolio-overlay">
                         <h3>PET Bottles</h3>
                         <p>Lightweight design with consistent wall thickness</p>
@@ -427,7 +465,7 @@
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> Lucknow, Uttar Pradesh</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
                         <p><i class="fas fa-phone"></i> +91-9696015602</p>
                         <p><i class="fas fa-phone"></i> +91-8840277618</p>
                         <p><i class="fas fa-envelope"></i> vedXbharat25@email.com</p>
@@ -624,7 +662,7 @@
     </footer>
 
     <!-- Scroll to top button -->
-    <a href="#" class="scroll-top">
+    <a href="#" class="scroll-top back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
