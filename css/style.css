@@ -123,7 +123,6 @@ header.scrolled {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    animation: pulse 2s infinite, rotate 10s infinite linear;
 }
 
 @keyframes pulse {
@@ -492,7 +491,7 @@ section.visible {
 .section-title p {
     max-width: 700px;
     margin: 0 auto;
-    color: var(--text-secondary);
+    color: #ffffff;
     font-size: 1.2rem;
 }
 
@@ -932,35 +931,7 @@ section.visible {
     transform: scale(1.1);
 }
 
-/* Adjust service icon position */
-.service-icon {
-    position: absolute;
-    top: 170px;
-    /* Position icon at bottom of image */
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--primary), var(--primary-light));
-    color: var(--accent);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 1.5rem;
-    padding: 0;
-    transition: var(--transition);
-}
 
-.service-card:hover .service-icon,
-.service-card.touch-active .service-icon,
-.service-card:focus-within .service-icon {
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
 
 /* Adjust service content padding to accommodate image */
 .service-content {
@@ -1790,11 +1761,11 @@ footer::before {
     .form-control {
         background-color: transparent;
         border-color: #cfcfcf;
-        color: white;
+        color: rgb(0, 0, 0);
     }
 
     .form-control:focus {
-        background-color: #2d3748;
+        background-color: #ffffff;
     }
 
     footer {
