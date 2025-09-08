@@ -1,43 +1,51 @@
+/* =============================================
+   VEDX BHARAT - STYLE SHEET
+   Precision Plastic Mould Design Website
+   Color Scheme: Blue (#1a365d) and Gold (#d69e2e)
+   ============================================= */
+
+/* CSS Variables for consistent theming */
 :root {
-    --primary: #1a365d;
-    --primary-light: #2d4b80;
-    --secondary: #2d3748;
-    --accent: #d69e2e;
-    --accent-light: #ecc94b;
-    --accent-dark: #b37c1c;
-    --light: #ffffff;
-    --dark: #2d3748;
-    --transition: all 0.3s ease;
-    --radius: 12px;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-    --surface: #ffffff;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
-    --success: #38a169;
-    --error: #e53e3e;
+    --primary: #1a365d;          /* Dark blue - main brand color */
+    --primary-light: #2d4b80;    /* Lighter blue variant */
+    --secondary: #2d3748;        /* Secondary dark color */
+    --accent: #d69e2e;           /* Gold accent color */
+    --accent-light: #ecc94b;     /* Lighter gold variant */
+    --accent-dark: #b37c1c;      /* Darker gold variant */
+    --light: #ffffff;            /* White */
+    --dark: #2d3748;             /* Dark color for text */
+    --transition: all 0.3s ease; /* Default transition */
+    --radius: 12px;              /* Border radius */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);        /* Default shadow */
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15); /* Hover shadow */
+    --surface: #ffffff;          /* Surface/background color */
+    --text-primary: #2d3748;     /* Primary text color */
+    --text-secondary: #4a5568;   /* Secondary text color */
+    --success: #38a169;          /* Success color */
+    --error: #e53e3e;            /* Error color */
 }
 
+/* Global Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-behavior: smooth;     /* Smooth scrolling for anchor links */
+    scroll-padding-top: 80px;    /* Offset for fixed header */
 }
 
 body {
     color: var(--text-primary);
     line-height: 1.6;
-    background-color: #f8f9fa;
-    overflow-x: hidden;
+    background-color: #f8f9fa;   /* Light gray background */
+    overflow-x: hidden;          /* Prevent horizontal scrolling */
     font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Improved focus styles for accessibility */
+/* Accessibility: Improved focus styles */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -47,7 +55,7 @@ select:focus-visible {
     outline-offset: 2px;
 }
 
-/* Skip link for accessibility */
+/* Skip link for keyboard navigation accessibility */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -64,6 +72,7 @@ select:focus-visible {
     top: 0;
 }
 
+/* Container for consistent content width */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -71,17 +80,19 @@ select:focus-visible {
     padding: 0 15px;
 }
 
-/* Improved Header Styles */
+/* =============================================
+   HEADER STYLES
+   ============================================= */
 header {
-    background-color: rgba(26, 54, 93, 0.98);
+    background-color: rgba(26, 54, 93, 0.98); /* Semi-transparent blue */
     padding: 1rem 0;
-    position: fixed;
+    position: fixed; /* Fixed position for sticky header */
     width: 100%;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
 }
 
 header.scrolled {
@@ -95,6 +106,7 @@ header.scrolled {
     align-items: center;
 }
 
+/* Logo Styles */
 .logo {
     display: flex;
     align-items: center;
@@ -110,7 +122,7 @@ header.scrolled {
 }
 
 .logo:hover .logo-text {
-    color: var(--accent);
+    color: var(--accent); /* Gold color on hover */
 }
 
 .logo-symbol {
@@ -125,28 +137,16 @@ header.scrolled {
     overflow: hidden;
 }
 
+/* Logo Animation */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .logo-symbol::before {
@@ -157,6 +157,7 @@ header.scrolled {
     z-index: 2;
 }
 
+/* Navigation Styles */
 nav ul {
     display: flex;
     list-style: none;
@@ -174,6 +175,7 @@ nav ul li a {
     font-size: 1.1rem;
 }
 
+/* Navigation underline effect */
 nav ul li a::after {
     content: "";
     position: absolute;
@@ -190,6 +192,7 @@ nav ul li a:focus-visible::after {
     width: 100%;
 }
 
+/* Mobile Menu Button (Hidden on Desktop) */
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -217,6 +220,7 @@ nav ul li a:focus-visible::after {
     transform-origin: center;
 }
 
+/* Hamburger to X animation */
 .mobile-menu-btn.active span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -233,7 +237,7 @@ nav ul li a:focus-visible::after {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Menu backdrop */
+/* Mobile Menu Backdrop */
 .menu-backdrop {
     position: fixed;
     top: 0;
@@ -253,12 +257,14 @@ nav ul li a:focus-visible::after {
     visibility: visible;
 }
 
-/* Enhanced Hero Section */
+/* =============================================
+   HERO SECTION STYLES
+   ============================================= */
 .hero {
     background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.95)), url('https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Parallax effect */
     color: white;
     padding: 12rem 0 8rem;
     text-align: center;
@@ -267,9 +273,10 @@ nav ul li a:focus-visible::after {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    will-change: transform, opacity;
+    will-change: transform, opacity; /* Performance optimization */
 }
 
+/* Decorative pattern overlay */
 .hero::before {
     content: '';
     position: absolute;
@@ -327,17 +334,15 @@ nav ul li a:focus-visible::after {
     margin-bottom: 2rem;
 }
 
+/* Text glow animation */
 @keyframes glow {
-    0% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    }
-
-    100% {
-        text-shadow: 0 0 20px rgba(214, 158, 46, 0.8), 0 0 30px rgba(214, 158, 46, 0.6);
-    }
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(214, 158, 46, 0.8), 0 0 30px rgba(214, 158, 46, 0.6); }
 }
 
-/* Enhanced Button Styles */
+/* =============================================
+   BUTTON STYLES
+   ============================================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -358,6 +363,7 @@ nav ul li a:focus-visible::after {
     gap: 0.5rem;
 }
 
+/* Button shine effect */
 .btn::before {
     content: '';
     position: absolute;
@@ -397,6 +403,7 @@ nav ul li a:focus-visible::after {
     transform: translateY(-1px);
 }
 
+/* Loading state for buttons */
 .btn.loading {
     position: relative;
     color: transparent;
@@ -417,40 +424,31 @@ nav ul li a:focus-visible::after {
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
 }
 
-/* Animations */
+/* =============================================
+   ANIMATIONS
+   ============================================= */
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+    to { opacity: 1; }
 }
 
-/* Enhanced Sections */
+/* =============================================
+   SECTION STYLES
+   ============================================= */
 section {
     padding: 6rem 0;
     opacity: 0;
@@ -495,7 +493,9 @@ section.visible {
     font-size: 1.2rem;
 }
 
-/* Enhanced About Section */
+/* =============================================
+   ABOUT SECTION STYLES
+   ============================================= */
 .about-content {
     display: flex;
     align-items: center;
@@ -525,7 +525,7 @@ section.visible {
     max-width: 100%;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    transform: perspective(1000px) rotateY(-10deg);
+    transform: perspective(1000px) rotateY(-10deg); /* 3D perspective effect */
     transition: var(--transition);
     animation: float 6s ease-in-out infinite;
 }
@@ -534,18 +534,11 @@ section.visible {
     transform: perspective(1000px) rotateY(0);
 }
 
+/* Floating animation */
 @keyframes float {
-    0% {
-        transform: perspective(1000px) rotateY(-10deg) translateY(0px);
-    }
-
-    50% {
-        transform: perspective(1000px) rotateY(-10deg) translateY(-15px);
-    }
-
-    100% {
-        transform: perspective(1000px) rotateY(-10deg) translateY(0px);
-    }
+    0% { transform: perspective(1000px) rotateY(-10deg) translateY(0px); }
+    50% { transform: perspective(1000px) rotateY(-10deg) translateY(-15px); }
+    100% { transform: perspective(1000px) rotateY(-10deg) translateY(0px); }
 }
 
 /* Symbol explanation styling */
@@ -563,7 +556,7 @@ section.visible {
     font-size: 1.3rem;
 }
 
-/* Enhanced Meaning Grid */
+/* Meaning Grid (V-E-D-X) */
 .meaning-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -588,8 +581,8 @@ section.visible {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    contain: layout style paint;
-    will-change: transform, opacity;
+    contain: layout style paint; /* Performance optimization */
+    will-change: transform, opacity; /* Performance optimization */
 }
 
 .meaning-item::before {
@@ -655,7 +648,9 @@ section.visible {
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Enhanced Vision & Values Section */
+/* =============================================
+   PHILOSOPHY SECTION STYLES (Vision & Values)
+   ============================================= */
 .philosophy {
     background-color: var(--primary);
     color: white;
@@ -679,6 +674,7 @@ section.visible {
     color: white;
 }
 
+/* Tab Navigation */
 .tabs {
     display: flex;
     justify-content: center;
@@ -735,6 +731,7 @@ section.visible {
     margin-bottom: 2rem;
 }
 
+/* Values Grid */
 .values-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -780,6 +777,7 @@ section.visible {
     color: var(--accent);
 }
 
+/* Principles List */
 .principles-list {
     max-width: 800px;
     margin: 0 auto;
@@ -817,6 +815,7 @@ section.visible {
     min-width: 30px;
 }
 
+/* Goals Grid */
 .goals-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -852,12 +851,14 @@ section.visible {
     margin-bottom: 1rem;
 }
 
-/* Enhanced Services Section */
+/* =============================================
+   SERVICES SECTION STYLES
+   ============================================= */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
-    perspective: 1000px;
+    perspective: 1000px; /* 3D perspective for cards */
 }
 
 .service-card {
@@ -931,13 +932,10 @@ section.visible {
     transform: scale(1.1);
 }
 
-
-
-/* Adjust service content padding to accommodate image */
+/* Service Content Styling */
 .service-content {
     padding: 3rem 2rem 2rem;
-    margin-top: -30px;
-    /* Overlap the icon area */
+    margin-top: -30px; /* Overlap the icon area */
     position: relative;
     z-index: 1;
 }
@@ -970,7 +968,9 @@ section.visible {
     font-weight: 500;
 }
 
-/* Enhanced Portfolio Section */
+/* =============================================
+   PORTFOLIO SECTION STYLES
+   ============================================= */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1073,7 +1073,9 @@ section.visible {
     transform: translateY(0);
 }
 
-/* Enhanced Testimonials */
+/* =============================================
+   TESTIMONIALS SECTION STYLES
+   ============================================= */
 .testimonials {
     background: linear-gradient(to right, var(--primary), var(--primary-light));
     color: white;
@@ -1107,7 +1109,7 @@ section.visible {
 }
 
 .testimonial-card {
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 2.5rem;
     border-radius: var(--radius);
     position: relative;
@@ -1121,7 +1123,7 @@ section.visible {
 .testimonial-card.touch-active,
 .testimonial-card:focus-within {
     transform: translateY(-10px);
-    background-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -1166,7 +1168,9 @@ section.visible {
     margin-bottom: 0.3rem;
 }
 
-/* Enhanced Contact Section */
+/* =============================================
+   CONTACT SECTION STYLES
+   ============================================= */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
@@ -1297,7 +1301,9 @@ textarea.form-control {
     box-shadow: 0 10px 25px rgba(214, 158, 46, 0.3);
 }
 
-/* Enhanced Footer Styles */
+/* =============================================
+   FOOTER STYLES
+   ============================================= */
 footer {
     background: linear-gradient(to right, var(--primary), var(--primary-light));
     color: white;
@@ -1397,7 +1403,9 @@ footer::before {
     opacity: 0.8;
 }
 
-/* Enhanced Back to top button */
+/* =============================================
+   BACK TO TOP BUTTON
+   ============================================= */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -1441,17 +1449,9 @@ footer::before {
 
 /* Pulse animation for back-to-top button */
 @keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(214, 158, 46, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(214, 158, 46, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(214, 158, 46, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(214, 158, 46, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(214, 158, 46, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(214, 158, 46, 0); }
 }
 
 .back-to-top.visible {
@@ -1542,7 +1542,96 @@ footer::before {
     transform: translateY(-2px);
 }
 
-/* Responsive adjustments */
+/* =============================================
+   RESPONSIVE STYLES
+   ============================================= */
+
+/* Footer Mobile & Tablet Improvements */
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-col:first-child,
+  .footer-col:nth-child(3),
+  .footer-col:last-child {
+    display: none;
+  }
+
+  .footer-col:nth-child(2) {
+    display: block;
+    order: -1;
+  }
+
+  .footer-col h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-col ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .footer-col ul li {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-col ul li a {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .footer-col ul li a:hover,
+  .footer-col ul li a:focus {
+    background-color: rgba(214, 158, 46, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-col ul {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Ensure desktop view remains unchanged */
+@media (min-width: 993px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  
+  .footer-col {
+    display: block !important;
+  }
+}
+
+/* General Responsive Adjustments */
 @media (max-width: 1200px) {
     .hero h1 {
         font-size: 3rem;
@@ -1580,6 +1669,7 @@ footer::before {
     }
 }
 
+/* Tablet Styles */
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
@@ -1684,6 +1774,7 @@ footer::before {
     }
 }
 
+/* Mobile Styles */
 @media (max-width: 576px) {
     .hero h1 {
         font-size: 2rem;
@@ -1714,6 +1805,10 @@ footer::before {
         padding: 1.5rem;
     }
 }
+
+/* =============================================
+   ACCESSIBILITY AND SPECIAL MODES
+   ============================================= */
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
@@ -1851,4 +1946,62 @@ footer::before {
 /* Pulse animation for scroll-top button */
 .scroll-top.visible {
     animation: pulse 2s infinite;
+}
+
+/* Symbol Explanation Toggle Styles */
+.symbol-explanation-toggle {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background-color: rgba(26, 54, 93, 0.05);
+    border: none;
+    border-left: 4px solid var(--accent);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    color: var(--primary);
+    text-align: left;
+}
+
+.toggle-btn:hover,
+.toggle-btn:focus {
+    background-color: rgba(26, 54, 93, 0.1);
+    outline: none;
+}
+
+.toggle-btn span {
+    font-size: 1.2rem;
+}
+
+.toggle-btn i {
+    transition: var(--transition);
+}
+
+.toggle-btn[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.symbol-explanation-content {
+    padding: 0 1.5rem;
+    background-color: rgba(26, 54, 93, 0.03);
+    border-left: 4px solid var(--accent);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.symbol-explanation-content p {
+    padding: 1.2rem 0;
+    margin: 0;
+}
+
+.symbol-explanation-content p:not(:last-child) {
+    border-bottom: 1px solid rgba(26, 54, 93, 0.1);
 }

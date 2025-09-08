@@ -2,9 +2,12 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VedX Bharat - Precision Plastic Mould Design</title>
+    
+    <!-- External resources: Font Awesome, Google Fonts, CSS, Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&display=swap"
@@ -14,16 +17,24 @@
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header Section with Navigation -->
     <header>
         <div class="container header-container">
+            <!-- Company Logo -->
             <div class="logo">
                 <div class="logo-symbol"></div>
                 <div class="logo-text">VedX Bharat</div>
             </div>
+            
+            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
+            
+            <!-- Main Navigation -->
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -38,567 +49,600 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="particles-container"></div>
-        <div class="container">
-            <h1>Innovative Design Solution</h1>
-            <p>VedX Bharat is your trusted partner in custom <b>Precision</b> plastic mold design, combining ancient
-                Vedic wisdom with modern technological excellence.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-outline">Our Services</a>
-                <a href="#contact" class="btn">Get a Quote</a>
-            </div><br>
-            <p class="hero-tagline">Trusted by startups | Mold design for mass production | One time delivery.</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About VedX Bharat</h2>
-                <p>Established on 1 January 2023 by experienced designers Yashveer Singh & Prabal Dwivedi</p>
+    <!-- Main Content Area -->
+    <main id="main-content">
+        <!-- Hero Section with Background Image and Call-to-Action -->
+        <section class="hero" id="home">
+            <div class="particles-container"></div>
+            <div class="container">
+                <h1>Innovative Design Solution</h1>
+                <p>VedX Bharat is your trusted partner in custom <b>Precision</b> plastic mold design, combining ancient
+                    Vedic wisdom with modern technological excellence.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                    <a href="#contact" class="btn">Get a Quote</a>
+                </div><br>
+                <p class="hero-tagline">Trusted by startups | Mold design for mass production | One time delivery.</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Where India shapes the future of the world with its knowledge</h3>
-                    <p>VedX Bharat is your trusted partner in custom plastic mould design. We provide end-to-end mould
-                        design solutions for plastic product manufacturers, ensuring durability, accuracy, and superior
-                        production performance.</p>
-                    <p>We specialize in designing precision plastic moulds for industries including packaging, consumer
-                        electronics, automotive, medical and home appliances. Our experienced team combines technical
-                        skill with practical industry knowledge to turn concepts into production-ready moulds.</p>
+        </section>
 
-                    <div class="symbol-explanation">
-                        <h4>The VedX Symbol Meaning</h4>
-                        <p>The "V" Symbol is stylized with intricate circuit-like patterns and glowing dots,
-                            representing connection to technology, digital innovation, and a forward-thinking,
-                            futuristic approach.</p>
-                        <p>The "Om" and "Lotus" symbol inside the "V" represents the universe, consciousness, spiritual
-                            knowledge, and purity enlightenment - the ability to rise above challenges to achieve
-                            excellence.</p>
-                    </div>
-
-                    <div class="meaning-grid">
-                        <div class="meaning-item">
-                            <h4>V</h4>
-                            <p>Veda (वेद)</p>
-                        </div>
-                        <div class="meaning-item">
-                            <h4>E</h4>
-                            <p>Evolution</p>
-                        </div>
-                        <div class="meaning-item">
-                            <h4>D</h4>
-                            <p>Design</p>
-                        </div>
-                        <div class="meaning-item">
-                            <h4>X</h4>
-                            <p>Excellence</p>
-                        </div>
-                    </div>
+        <!-- About Section - Company Information and Symbol Meaning -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About VedX Bharat</h2>
+                    <p>Established on 1 January 2023 by experienced designers Yashveer Singh & Prabal Dwivedi</p>
                 </div>
-                <div class="about-image">
-                    <img src="./image/About section.jpg"
-                        alt="Mould Design Process">
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Where India shapes the future of the world with its knowledge</h3>
+                        <p>VedX Bharat is your trusted partner in custom plastic mould design. We provide end-to-end mould
+                            design solutions for plastic product manufacturers, ensuring durability, accuracy, and superior
+                            production performance.</p>
+                        <p>We specialize in designing precision plastic moulds for industries including packaging, consumer
+                            electronics, automotive, medical and home appliances. Our experienced team combines technical
+                            skill with practical industry knowledge to turn concepts into production-ready moulds.</p>
 
-    <!-- Philosophy Section (Vision, Values, Principles, Goals) -->
-    <section id="philosophy" class="philosophy">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Philosophy</h2>
-                <p>Guiding principles that define who we are and how we work</p>
-            </div>
+                        <!-- Symbol Explanation with Toggle Functionality -->
+                        <div class="symbol-explanation-toggle">
+                            <button class="toggle-btn" aria-expanded="false">
+                                <span>The VedX Symbol Meaning</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="symbol-explanation-content" style="display: none;">
+                                <p>The "V" Symbol is stylized with intricate circuit-like patterns and glowing dots,
+                                    representing connection to technology, digital innovation, and a forward-thinking,
+                                    futuristic approach.</p>
+                                <p>The "Om" and "Lotus" symbol inside the "V" represents the universe, consciousness,
+                                    spiritual
+                                    knowledge, and purity enlightenment - the ability to rise above challenges to achieve
+                                    excellence.</p>
+                            </div>
+                        </div>
 
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="vision">Our Vision</button>
-                <button class="tab-btn" data-tab="values">Our Values</button>
-                <button class="tab-btn" data-tab="principles">Our Principles</button>
-                <button class="tab-btn" data-tab="goals">Our Goals</button>
-            </div>
-
-            <div class="tab-content active" id="vision-content">
-                <div class="vision-content">
-                    <p>"To be the global benchmark for innovation that harmoniously blends ancient Vedic wisdom with
-                        future modern technological excellence in mould design, creating solutions that are sustainable,
-                        equitable, and spiritually enlightened for Bharat and across the world."</p>
-                    <p>"जहाँ भारत अपने ज्ञान से संसार का भविष्य गढ़ता है"</p>
-                    <p>"Where India shapes the future of the world with its knowledge"</p>
-                </div>
-            </div>
-
-            <div class="tab-content" id="values-content">
-                <div class="values-grid">
-                    <div class="value-item">
-                        <i class="fas fa-users"></i>
-                        <h3>Customer-Centric Approach</h3>
-                        <p>We prioritize our clients' needs and satisfaction above all else</p>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>Precision & Quality</h3>
-                        <p>We deliver exceptional quality with attention to every detail</p>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Innovation & Improvement</h3>
-                        <p>We constantly evolve and improve our processes and designs</p>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Integrity & Transparency</h3>
-                        <p>We maintain honesty and openness in all our dealings</p>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-globe"></i>
-                        <h3>Global Sustainability</h3>
-                        <p>We design with environmental responsibility in mind</p>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Technical Excellence</h3>
-                        <p>We maintain the highest standards of technical proficiency</p>
-                    </div>
-                    <div class="value-item">
-                        <i class="fas fa-hands-helping"></i>
-                        <h3>Teamwork & Respect</h3>
-                        <p>We value collaboration and mutual respect in all interactions</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="principles-content">
-                <div class="principles-list">
-                    <div class="principle-item">
-                        <div class="principle-icon">🧭</div>
-                        <div>
-                            <h3>Dharma</h3>
-                            <p>Ethical responsibility and purpose driven action</p>
+                        <!-- Meaning Grid for V-E-D-X Characters -->
+                        <div class="meaning-grid">
+                            <div class="meaning-item">
+                                <h4>V</h4>
+                                <p>Veda (वेद)</p>
+                            </div>
+                            <div class="meaning-item">
+                                <h4>E</h4>
+                                <p>Evolution</p>
+                            </div>
+                            <div class="meaning-item">
+                                <h4>D</h4>
+                                <p>Design</p>
+                            </div>
+                            <div class="meaning-item">
+                                <h4>X</h4>
+                                <p>Excellence</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="principle-item">
-                        <div class="principle-icon">⭐</div>
-                        <div>
-                            <h3>Samyak</h3>
-                            <p>Committed to holistic excellence in every aspect</p>
+                    <div class="about-image">
+                        <img src="./image/About section.jpg" alt="Mould Design Process">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section with Tabbed Interface -->
+        <section id="philosophy" class="philosophy">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Philosophy</h2>
+                    <p>Guiding principles that define who we are and how we work</p>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="vision">Our Vision</button>
+                    <button class="tab-btn" data-tab="values">Our Values</button>
+                    <button class="tab-btn" data-tab="principles">Our Principles</button>
+                    <button class="tab-btn" data-tab="goals">Our Goals</button>
+                </div>
+
+                <!-- Tab Content - Vision -->
+                <div class="tab-content active" id="vision-content">
+                    <div class="vision-content">
+                        <p>"To be the global benchmark for innovation that harmoniously blends ancient Vedic wisdom with
+                            future modern technological excellence in mould design, creating solutions that are sustainable,
+                            equitable, and spiritually enlightened for Bharat and across the world."</p>
+                        <p>"जहाँ भारत अपने ज्ञान से संसार का भविष्य गढ़ता है"</p>
+                        <p>"Where India shapes the future of the world with its knowledge"</p>
+                    </div>
+                </div>
+
+                <!-- Tab Content - Values -->
+                <div class="tab-content" id="values-content">
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <i class="fas fa-users"></i>
+                            <h3>Customer-Centric Approach</h3>
+                            <p>We prioritize our clients' needs and satisfaction above all else</p>
                         </div>
-                    </div>
-                    <div class="principle-item">
-                        <div class="principle-icon">⚖️</div>
-                        <div>
-                            <h3>Karmayoga</h3>
-                            <p>The pursuit of action without attachment to results</p>
+                        <div class="value-item">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>Precision & Quality</h3>
+                            <p>We deliver exceptional quality with attention to every detail</p>
                         </div>
-                    </div>
-                    <div class="principle-item">
-                        <div class="principle-icon">🔄</div>
-                        <div>
-                            <h3>Samanaya</h3>
-                            <p>The harmonious integration of diverse ideas and disciplines</p>
+                        <div class="value-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Innovation & Improvement</h3>
+                            <p>We constantly evolve and improve our processes and designs</p>
                         </div>
-                    </div>
-                    <div class="principle-item">
-                        <div class="principle-icon">💡</div>
-                        <div>
-                            <h3>Pragyan</h3>
-                            <p>The practice of conscious mindful innovation</p>
+                        <div class="value-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Integrity & Transparency</h3>
+                            <p>We maintain honesty and openness in all our dealings</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="goals-content">
-                <div class="goals-grid">
-                    <div class="goal-item">
-                        <i class="fas fa-award"></i>
-                        <h3>Establish Vedic-Inspired Design</h3>
-                        <p>Make "Vedic-Inspired Design" a recognized discipline in global manufacturing</p>
-                    </div>
-                    <div class="goal-item">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Strategic Partnerships</h3>
-                        <p>Form long-term partnerships with leading manufacturing companies</p>
-                    </div>
-                    <div class="goal-item">
-                        <i class="fas fa-leaf"></i>
-                        <h3>Sustainable Practices</h3>
-                        <p>Reduce environmental footprint of product lines through design optimization</p>
-                    </div>
-                    <div class="goal-item">
-                        <i class="fas fa-tools"></i>
-                        <h3>Proprietary Methodologies</h3>
-                        <p>Develop unique design methodologies accessible to businesses of all sizes</p>
-                    </div>
-                    <div class="goal-item">
-                        <i class="fas fa-users"></i>
-                        <h3>World-Class Team</h3>
-                        <p>Build a passionate team committed to our core values and mission</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Comprehensive design solutions for diverse industrial applications</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/Injection Mould Design.jpg"
-                            alt="Injection Mould Design" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Injection Mould Design</h3>
-                        <p>From 3D modeling to draft analysis, undercut resolution, parting line definition, and full 2D detailing — we deliver designs ready for manufacturing.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/Sheet metal tool design.jpg"
-                            alt="Sheet Metal Tool Design" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Sheet Metal Tool Design</h3>
-                        <p>Die design for stamping, bending and forming sheet metal components including progressive and
-                            compound dies.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/CAD Modeling & Drafting.jpg"
-                            alt="CAD Modeling & Drafting" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>CAD Modeling & Drafting</h3>
-                        <p>From 3D modeling to draft analysis and full 2D detailing, we transform concepts into precise, production-ready designs.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/Mould flow 1.jpg"
-                            alt="Mould Flow Analysis" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Mould Flow Analysis</h3>
-                        <p>Advanced simulation services for gate optimization, fill pattern validation, and cycle time
-                            prediction.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/Prototype tool.jpg"
-                            alt="Prototype & Tool Validation" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Prototype & Tool Validation</h3>
-                        <p>Functional prototyping, pilot mould testing, and design adjustments for tool performance.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/jigs and fixtures.jpg"
-                            alt="Jigs & Fixtures" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Jigs & Fixtures</h3>
-                        <p>We design high-precision jigs and fixtures that simplify manufacturing, enhance productivity, and guarantee consistent quality.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="./image/Mould Modification.jpg"
-                            alt="Mould Modification & Repair" loading="lazy">
-                    </div>
-                    <div class="service-content">
-                        <h3>Mould Modification & Repair</h3>
-                        <p>Redesign or modify existing tools for new applications or improved functionality.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-note">
-                <p>Need custom tooling? We deliver design-ready files that reduce production hassle and maximize ROI.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Portfolio</h2>
-                <p>A glimpse into our expertise and completed projects</p>
-            </div>
-            <div class="portfolio-grid">
-                <!-- Update this image -->
-                <div class="portfolio-item">
-                    <img src="./image/Shampoo Bottle Cap.jpg" data-src="./image/Shampoo Bottle Cap.jpg"
-                        class="portfolio-img lazy-load" alt="Shampoo Bottle Cap">
-                    <div class="portfolio-overlay">
-                        <h3>Shampoo Bottle Cap</h3>
-                        <p>Optimized for fast cooling and high-volume runs</p>
-                    </div>
-                </div>
-
-                <!-- Update this image -->
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        data-src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        class="portfolio-img lazy-load" alt="Smartphone Shell">
-                    <div class="portfolio-overlay">
-                        <h3>Smartphone Shell</h3>
-                        <p>High detail and dimensional accuracy</p>
-                    </div>
-                </div>
-
-                <!-- Update this image -->
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        data-src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                        class="portfolio-img lazy-load" alt="Automotive AC Vent">
-                    <div class="portfolio-overlay">
-                        <h3>Automotive AC Vent</h3>
-                        <p>Multi-cavity, durable, and cycle-optimized</p>
-                    </div>
-                </div>
-
-                <!-- Update this image -->
-                <div class="portfolio-item">
-                    <img src="./image/pet-bottles-600.jpg" data-src="./image/pet-bottles-600.jpg"
-                        class="portfolio-img lazy-load" alt="PET Bottles">
-                    <div class="portfolio-overlay">
-                        <h3>PET Bottles</h3>
-                        <p>Lightweight design with consistent wall thickness</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>What our clients say about our services and work quality</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>"They designed our complex moulds with such precision that we had near-zero rework at the
-                            production stage. Truly reliable."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Sunil K.">
-                        <div class="author-details">
-                            <h4>Sunil K.</h4>
-                            <p>Director, ClearPack India</p>
+                        <div class="value-item">
+                            <i class="fas fa-globe"></i>
+                            <h3>Global Sustainability</h3>
+                            <p>We design with environmental responsibility in mind</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Technical Excellence</h3>
+                            <p>We maintain the highest standards of technical proficiency</p>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-hands-helping"></i>
+                            <h3>Teamwork & Respect</h3>
+                            <p>We value collaboration and mutual respect in all interactions</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>"The mould flow analysis saved us weeks of trial-and-error. Fast, accurate, and professional
-                            service."</p>
+                <!-- Tab Content - Principles -->
+                <div class="tab-content" id="principles-content">
+                    <div class="principles-list">
+                        <div class="principle-item">
+                            <div class="principle-icon">🧭</div>
+                            <div>
+                                <h3>Dharma</h3>
+                                <p>Ethical responsibility and purpose driven action</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">⭐</div>
+                            <div>
+                                <h3>Samyak</h3>
+                                <p>Committed to holistic excellence in every aspect</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">⚖️</div>
+                            <div>
+                                <h3>Karmayoga</h3>
+                                <p>The pursuit of action without attachment to results</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">🔄</div>
+                            <div>
+                                <h3>Samanaya</h3>
+                                <p>The harmonious integration of diverse ideas and disciplines</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">💡</div>
+                            <div>
+                                <h3>Pragyan</h3>
+                                <p>The practice of conscious mindful innovation</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya M.">
-                        <div class="author-details">
-                            <h4>Priya M.</h4>
-                            <p>Technical Lead, ThermoPack Solutions</p>
+                </div>
+
+                <!-- Tab Content - Goals -->
+                <div class="tab-content" id="goals-content">
+                    <div class="goals-grid">
+                        <div class="goal-item">
+                            <i class="fas fa-award"></i>
+                            <h3>Establish Vedic-Inspired Design</h3>
+                            <p>Make "Vedic-Inspired Design" a recognized discipline in global manufacturing</p>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Strategic Partnerships</h3>
+                            <p>Form long-term partnerships with leading manufacturing companies</p>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Sustainable Practices</h3>
+                            <p>Reduce environmental footprint of product lines through design optimization</p>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-tools"></i>
+                            <h3>Proprietary Methodologies</h3>
+                            <p>Develop unique design methodologies accessible to businesses of all sizes</p>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-users"></i>
+                            <h3>World-Class Team</h3>
+                            <p>Build a passionate team committed to our core values and mission</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section - Updated Form -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our design experts for your next project</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <div class="contact-details">
-                        <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
-                        <p><i class="fas fa-phone"></i> +91-9696015602</p>
-                        <p><i class="fas fa-phone"></i> +91-8840277618</p>
-                        <p><i class="fas fa-envelope"></i> vedXbharat25@email.com</p>
+        <!-- Services Section - Showcasing Company Offerings -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive design solutions for diverse industrial applications</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Service Card 1: Injection Mould Design -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/Injection Mould Design.jpg" alt="Injection Mould Design" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Injection Mould Design</h3>
+                            <p>From 3D modeling to draft analysis, undercut resolution, parting line definition, and full 2D
+                                detailing — we deliver designs ready for manufacturing.</p>
+                        </div>
                     </div>
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+
+                    <!-- Service Card 2: Sheet Metal Tool Design -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/Sheet metal tool design.jpg" alt="Sheet Metal Tool Design" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Sheet Metal Tool Design</h3>
+                            <p>Die design for stamping, bending and forming sheet metal components including progressive and
+                                compound dies.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3: CAD Modeling & Drafting -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/CAD Modeling & Drafting.jpg" alt="CAD Modeling & Drafting" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>CAD Modeling & Drafting</h3>
+                            <p>From 3D modeling to draft analysis and full 2D detailing, we transform concepts into precise,
+                                production-ready designs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4: Mould Flow Analysis -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/Mould flow 1.jpg" alt="Mould Flow Analysis" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Mould Flow Analysis</h3>
+                            <p>Advanced simulation services for gate optimization, fill pattern validation, and cycle time
+                                prediction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5: Prototype & Tool Validation -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/Prototype tool.jpg" alt="Prototype & Tool Validation" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Prototype & Tool Validation</h3>
+                            <p>Functional prototyping, pilot mould testing, and design adjustments for tool performance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6: Jigs & Fixtures -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/jigs and fixtures.jpg" alt="Jigs & Fixtures" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Jigs & Fixtures</h3>
+                            <p>We design high-precision jigs and fixtures that simplify manufacturing, enhance productivity,
+                                and guarantee consistent quality.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 7: Mould Modification & Repair -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="./image/Mould Modification.jpg" alt="Mould Modification & Repair" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Mould Modification & Repair</h3>
+                            <p>Redesign or modify existing tools for new applications or improved functionality.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Request a Quote</h3>
-                    <form id="quoteForm">
-                        <div class="form-group">
-                            <label for="name">Your Name *</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="number" id="phone" class="form-control" required>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="serviceType">Type of Service Required *</label>
-                            <select id="serviceType" class="form-control" required onchange="toggleSubOptions()">
-                                <option value="">Select Service Type</option>
-                                <option value="part-design">Part Design</option>
-                                <option value="mold-design">Mold Design</option>
-                                <option value="sheet-metal">Sheet Metal Tool Design</option>
-                                <option value="mold-flow">Mold Flow Analysis</option>
-                                <option value="mold-rectification">Mold Rectification</option>
-                                <option value="jigs-fixture">Jigs and Fixture</option>
-                                <option value="other">Others</option>
-                            </select>
-                        </div>
+                <!-- Services Note -->
+                <div class="services-note">
+                    <p>Need custom tooling? We deliver design-ready files that reduce production hassle and maximize ROI.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Sub-options container - Updated to include all additional fields -->
-                        <div id="subOptionsContainer"
-                            style="display: none; margin-bottom: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
-                            <div id="partDesignOptions" class="sub-options">
-                                <label>Material Type:</label>
-                                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="part-material" value="plastic"> Plastic
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="part-material" value="sheet-metal"> Sheet Metal
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="part-material" value="rubber"> Rubber
-                                    </label>
+        <!-- Portfolio Section - Showcasing Completed Projects -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Portfolio</h2>
+                    <p>A glimpse into our expertise and completed projects</p>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- Portfolio Item 1: Shampoo Bottle Cap -->
+                    <div class="portfolio-item">
+                        <img src="./image/Shampoo Bottle Cap.jpg" data-src="./image/Shampoo Bottle Cap.jpg"
+                            class="portfolio-img lazy-load" alt="Shampoo Bottle Cap">
+                        <div class="portfolio-overlay">
+                            <h3>Shampoo Bottle Cap</h3>
+                            <p>Optimized for fast cooling and high-volume runs</p>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 2: Smartphone Shell -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            data-src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            class="portfolio-img lazy-load" alt="Smartphone Shell">
+                        <div class="portfolio-overlay">
+                            <h3>Smartphone Shell</h3>
+                            <p>High detail and dimensional accuracy</p>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 3: Automotive AC Vent -->
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            data-src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            class="portfolio-img lazy-load" alt="Automotive AC Vent">
+                        <div class="portfolio-overlay">
+                            <h3>Automotive AC Vent</h3>
+                            <p>Multi-cavity, durable, and cycle-optimized</p>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 4: PET Bottles -->
+                    <div class="portfolio-item">
+                        <img src="./image/pet-bottles-600.jpg" data-src="./image/pet-bottles-600.jpg"
+                            class="portfolio-img lazy-load" alt="PET Bottles">
+                        <div class="portfolio-overlay">
+                            <h3>PET Bottles</h3>
+                            <p>Lightweight design with consistent wall thickness</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section - Client Feedback -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Testimonials</h2>
+                    <p>What our clients say about our services and work quality</p>
+                </div>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"They designed our complex moulds with such precision that we had near-zero rework at the
+                                production stage. Truly reliable."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Sunil K.">
+                            <div class="author-details">
+                                <h4>Sunil K.</h4>
+                                <p>Director, ClearPack India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            <p>"The mould flow analysis saved us weeks of trial-and-error. Fast, accurate, and professional
+                                service."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya M.">
+                            <div class="author-details">
+                                <h4>Priya M.</h4>
+                                <p>Technical Lead, ThermoPack Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section - Contact Form and Information -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our design experts for your next project</p>
+                </div>
+                <div class="contact-container">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                            <p><i class="fas fa-phone"></i> +91-9696015602</p>
+                            <p><i class="fas fa-phone"></i> +91-8840277618</p>
+                            <p><i class="fas fa-envelope"></i> vedXbharat25@email.com</p>
+                        </div>
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h3>Request a Quote</h3>
+                        <form id="quoteForm">
+                            <!-- Basic Information Fields -->
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="number" id="phone" class="form-control" required>
+                            </div>
+
+                            <!-- Service Type Selection -->
+                            <div class="form-group">
+                                <label for="serviceType">Type of Service Required *</label>
+                                <select id="serviceType" class="form-control" required onchange="toggleSubOptions()">
+                                    <option value="">Select Service Type</option>
+                                    <option value="part-design">Part Design</option>
+                                    <option value="mold-design">Mold Design</option>
+                                    <option value="sheet-metal">Sheet Metal Tool Design</option>
+                                    <option value="mold-flow">Mold Flow Analysis</option>
+                                    <option value="mold-rectification">Mold Rectification</option>
+                                    <option value="jigs-fixture">Jigs and Fixture</option>
+                                    <option value="other">Others</option>
+                                </select>
+                            </div>
+
+                            <!-- Sub-options Container (Dynamically Shown Based on Service Selection) -->
+                            <div id="subOptionsContainer"
+                                style="display: none; margin-bottom: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+                                <!-- Part Design Options -->
+                                <div id="partDesignOptions" class="sub-options">
+                                    <label>Material Type:</label>
+                                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="part-material" value="plastic"> Plastic
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="part-material" value="sheet-metal"> Sheet Metal
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="part-material" value="rubber"> Rubber
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Mold Design Options -->
+                                <div id="moldDesignOptions" class="sub-options">
+                                    <label>Mold Type:</label>
+                                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="mold-type" value="injection"> Injection Mold
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="mold-type" value="sheet-metal"> Sheet Metal Tool
+                                            Design
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="mold-type" value="blow"> Blow Mold
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="mold-type" value="compression"> Compression Mold
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Mold Rectification Options -->
+                                <div id="moldRectificationOptions" class="sub-options">
+                                    <label>Rectification Needed For:</label>
+                                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="rectification-type" value="dimensional">
+                                            Dimensional Inaccuracy
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="rectification-type" value="defect"> Part Defect
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="rectification-type" value="design-change"> Design
+                                            Change
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 5px;">
+                                            <input type="checkbox" name="rectification-type" value="wear-tear"> Wear and
+                                            Tear
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Project Details Fields -->
+                                <div class="form-group">
+                                    <label for="application">Product Application *</label>
+                                    <input type="text" id="application" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="volume">Estimated Production Volume *</label>
+                                    <input type="text" id="volume" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="material">Preferred Material</label>
+                                    <input type="text" id="material" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="timeline">Project Timeline</label>
+                                    <input type="text" id="timeline" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Project Details</label>
+                                    <textarea id="message" class="form-control" rows="4"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="file">Upload 2D/3D Files (optional)</label>
+                                    <input type="file" id="file" class="form-control">
                                 </div>
                             </div>
 
-                            <div id="moldDesignOptions" class="sub-options">
-                                <label>Mold Type:</label>
-                                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="mold-type" value="injection"> Injection Mold
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="mold-type" value="sheet-metal"> Sheet Metal Tool
-                                        Design
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="mold-type" value="blow"> Blow Mold
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="mold-type" value="compression"> Compression Mold
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div id="moldRectificationOptions" class="sub-options">
-                                <label>Rectification Needed For:</label>
-                                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 8px;">
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="rectification-type" value="dimensional">
-                                        Dimensional Inaccuracy
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="rectification-type" value="defect"> Part Defect
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="rectification-type" value="design-change"> Design
-                                        Change
-                                    </label>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="rectification-type" value="wear-tear"> Wear and
-                                        Tear
-                                    </label>
-                                </div>
-                            </div>
-
-                            <!-- Moved additional fields inside the sub-options container -->
-                            <div class="form-group">
-                                <label for="application">Product Application *</label>
-                                <input type="text" id="application" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="volume">Estimated Production Volume *</label>
-                                <input type="text" id="volume" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="material">Preferred Material</label>
-                                <input type="text" id="material" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="timeline">Project Timeline</label>
-                                <input type="text" id="timeline" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Project Details</label>
-                                <textarea id="message" class="form-control" rows="4"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="file">Upload 2D/3D Files (optional)</label>
-                                <input type="file" id="file" class="form-control">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn">Submit Request</button>
-                    </form>
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn">Submit Request</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Success Popup Modal -->
-    <div id="successModal" class="modal"
-        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center;">
-        <div style="background-color: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px;">
-            <div style="font-size: 48px; color: #4CAF50; margin-bottom: 20px;">
-                <i class="fas fa-check-circle"></i>
+        <!-- Success Modal (Hidden by Default) -->
+        <div id="successModal" class="modal"
+            style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 10000; justify-content: center; align-items: center;">
+            <div style="background-color: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px;">
+                <div style="font-size: 48px; color: #4CAF50; margin-bottom: 20px;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 style="color: #1a365d; margin-bottom: 15px;">Submitted Successful</h2>
+                <p style="margin-bottom: 25px;">Thank you for your inquiry! We will get back to you soon.</p>
+                <button onclick="closeSuccessModal()" class="btn"
+                    style="background-color: #1a365d; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer;">OK</button>
             </div>
-            <h2 style="color: #1a365d; margin-bottom: 15px;">Submitted Successful</h2>
-            <p style="margin-bottom: 25px;">Thank you for your inquiry! We will get back to you soon.</p>
-            <button onclick="closeSuccessModal()" class="btn"
-                style="background-color: #1a365d; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer;">OK</button>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <div class="container">
             <div class="footer-container">
+                <!-- Company Information -->
                 <div class="footer-col">
                     <h4>VedX Bharat</h4>
                     <p>Your trusted partner in custom plastic mould design, combining ancient Vedic wisdom with modern
                         technological excellence.</p>
                 </div>
+                
+                <!-- Quick Links -->
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
@@ -610,6 +654,8 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+                
+                <!-- Services Links -->
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
@@ -622,6 +668,8 @@
                         <li><a href="#">Mould Modification & Repair</a></li>
                     </ul>
                 </div>
+                
+                <!-- Contact Information -->
                 <div class="footer-col">
                     <h4>Contact Info</h4>
                     <ul>
@@ -632,18 +680,23 @@
                     </ul>
                 </div>
             </div>
+            
+            <!-- Copyright Information -->
             <div class="copyright">
                 <p>&copy; 2023 VedX Bharat Pvt. Ltd. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
+    <!-- Scroll to Top Button -->
     <a href="#" class="scroll-top back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- JavaScript Files -->
     <script src="./js/script.js"></script>
+    
+    <!-- Inline JavaScript for Specific Functionality -->
     <script>
         // Function to show success modal
         function showSuccessModal() {

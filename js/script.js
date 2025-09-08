@@ -1,8 +1,11 @@
 // =============================================
-// DOM Ready and Initialization
+// VEDX BHARAT - MAIN JAVASCRIPT FILE
+// Handles animations, interactions, and functionality
 // =============================================
+
+// DOM Ready and Initialization
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all functionality
+    // Initialize all functionality when DOM is fully loaded
     initScrollAnimations();
     initMobileMenu();
     initSmoothScrolling();
@@ -11,20 +14,30 @@ document.addEventListener('DOMContentLoaded', function () {
     initTouchInteractions();
     initLazyLoading();
     createParticles();
+    initSymbolExplanationToggle();
 
     // Check initial scroll position
     checkScroll();
 });
 
 // =============================================
-// Scroll Animations
+// SCROLL ANIMATIONS
 // =============================================
+
+/**
+ * Initialize scroll animations
+ * Sets up event listeners for scroll-based animations
+ */
 function initScrollAnimations() {
     window.addEventListener('scroll', debounce(checkScroll, 100));
     window.addEventListener('load', checkScroll);
     window.addEventListener('resize', debounce(checkScroll, 100));
 }
 
+/**
+ * Check scroll position and trigger animations
+ * Handles section visibility, header changes, and back-to-top button
+ */
 function checkScroll() {
     const sections = document.querySelectorAll('section');
     const elements = document.querySelectorAll('.service-card, .value-item, .portfolio-item, .testimonial-card');
@@ -36,6 +49,7 @@ function checkScroll() {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
 
+        // Check if section is in viewport
         if (scrollTop + windowHeight * 0.7 > sectionTop && scrollTop < sectionTop + sectionHeight) {
             section.classList.add('visible');
 
@@ -60,7 +74,7 @@ function checkScroll() {
         header.classList.remove('scrolled');
     }
 
-    // Scroll to top button
+    // Scroll to top button visibility
     const scrollTopBtn = document.querySelector('.back-to-top');
     if (window.scrollY > 500) {
         scrollTopBtn.classList.add('visible');
@@ -70,32 +84,41 @@ function checkScroll() {
 }
 
 // =============================================
-// Enhanced Mobile Menu Functionality
+// ENHANCED MOBILE MENU FUNCTIONALITY
 // =============================================
+
+/**
+ * Initialize mobile menu functionality
+ * Handles menu toggle, backdrop, and keyboard navigation
+ */
 function initMobileMenu() {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('nav ul');
     const menuBackdrop = document.createElement('div');
 
-    // Create backdrop element
+    // Create backdrop element for mobile menu
     menuBackdrop.className = 'menu-backdrop';
     document.body.appendChild(menuBackdrop);
 
     if (!menuBtn || !nav) return;
 
-    // Toggle menu function
+    /**
+     * Toggle mobile menu visibility
+     */
     function toggleMenu() {
         nav.classList.toggle('active');
         menuBtn.classList.toggle('active');
         menuBackdrop.classList.toggle('active');
         document.body.classList.toggle('menu-open');
 
-        // Update aria-expanded attribute
+        // Update aria-expanded attribute for accessibility
         const isExpanded = nav.classList.contains('active');
         menuBtn.setAttribute('aria-expanded', isExpanded);
     }
 
-    // Close menu function
+    /**
+     * Close mobile menu
+     */
     function closeMenu() {
         nav.classList.remove('active');
         menuBtn.classList.remove('active');
@@ -104,7 +127,7 @@ function initMobileMenu() {
         menuBtn.setAttribute('aria-expanded', 'false');
     }
 
-    // Mobile menu button click
+    // Mobile menu button click event
     menuBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         toggleMenu();
@@ -148,8 +171,13 @@ function initMobileMenu() {
 }
 
 // =============================================
-// Smooth Scrolling
+// SMOOTH SCROLLING
 // =============================================
+
+/**
+ * Initialize smooth scrolling functionality
+ * Handles anchor link navigation and scroll-to-top
+ */
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -166,8 +194,9 @@ function initSmoothScrolling() {
                     targetElement.classList.remove('highlight');
                 }, 2000);
 
+                // Smooth scroll to target
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetElement.offsetTop - 80, // Account for fixed header
                     behavior: 'smooth'
                 });
             }
@@ -188,8 +217,13 @@ function initSmoothScrolling() {
 }
 
 // =============================================
-// Enhanced Form Interactions & Validation
+// ENHANCED FORM INTERACTIONS & VALIDATION
 // =============================================
+
+/**
+ * Initialize form interactions and validation
+ * Sets up form validation, field interactions, and submission handling
+ */
 function initFormInteractions() {
     // Toggle sub-options based on service type
     const serviceTypeSelect = document.getElementById('serviceType');
@@ -197,7 +231,7 @@ function initFormInteractions() {
         serviceTypeSelect.addEventListener('change', toggleSubOptions);
     }
 
-    // Form submission
+    // Form submission handling
     const quoteForm = document.getElementById('quoteForm');
     if (quoteForm) {
         // Add input validation
@@ -219,7 +253,6 @@ function initFormInteractions() {
 
     // Enhanced form interactions
     const formControls = document.querySelectorAll('.form-control');
-
     formControls.forEach(control => {
         control.addEventListener('focus', function () {
             this.parentElement.classList.add('focused');
@@ -233,6 +266,11 @@ function initFormInteractions() {
     });
 }
 
+/**
+ * Validate form field
+ * @param {HTMLElement} field - The form field to validate
+ * @returns {boolean} - Whether the field is valid
+ */
 function validateField(field) {
     const value = field.value.trim();
     const fieldName = field.getAttribute('name') || field.getAttribute('id');
@@ -285,6 +323,11 @@ function validateField(field) {
     return isValid;
 }
 
+/**
+ * Create validation message element
+ * @param {HTMLElement} field - The field to add validation message to
+ * @returns {HTMLElement} - The validation message element
+ */
 function createValidationMessage(field) {
     const message = document.createElement('span');
     message.className = 'validation-message';
@@ -292,25 +335,41 @@ function createValidationMessage(field) {
     return message;
 }
 
+/**
+ * Validate email format
+ * @param {string} email - Email address to validate
+ * @returns {boolean} - Whether email is valid
+ */
 function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 
+/**
+ * Validate phone number format
+ * @param {string} phone - Phone number to validate
+ * @returns {boolean} - Whether phone number is valid
+ */
 function isValidPhone(phone) {
     const re = /^[+]?[\d\s\-()]{10,}$/;
     return re.test(phone);
 }
 
+/**
+ * Toggle sub-options based on selected service type
+ * Shows/hides additional form fields based on selection
+ */
 function toggleSubOptions() {
     const serviceType = document.getElementById('serviceType').value;
     const subOptionsContainer = document.getElementById('subOptionsContainer');
     const allSubOptions = document.querySelectorAll('.sub-options');
 
+    // Hide all sub-options first
     allSubOptions.forEach(option => {
         option.style.display = 'none';
     });
 
+    // Show relevant sub-options based on selection
     if (serviceType === 'part-design') {
         subOptionsContainer.style.display = 'block';
         document.getElementById('partDesignOptions').style.display = 'block';
@@ -328,6 +387,10 @@ function toggleSubOptions() {
     }
 }
 
+/**
+ * Handle form submission
+ * @param {Event} e - Form submit event
+ */
 function handleFormSubmit(e) {
     e.preventDefault();
 
@@ -377,6 +440,9 @@ function handleFormSubmit(e) {
     }, 1500);
 }
 
+/**
+ * Show success modal after form submission
+ */
 function showSuccessModal() {
     // Create modal if it doesn't exist
     let modal = document.getElementById('successModal');
@@ -419,6 +485,10 @@ function showSuccessModal() {
     modal.classList.add('active');
 }
 
+/**
+ * Show error modal with message
+ * @param {string} message - Error message to display
+ */
 function showErrorModal(message) {
     // Create modal if it doesn't exist
     let modal = document.getElementById('errorModal');
@@ -464,6 +534,10 @@ function showErrorModal(message) {
     modal.classList.add('active');
 }
 
+/**
+ * Close modal by ID
+ * @param {string} modalId - ID of the modal to close
+ */
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
@@ -472,8 +546,13 @@ function closeModal(modalId) {
 }
 
 // =============================================
-// Tab Functionality
+// TAB FUNCTIONALITY
 // =============================================
+
+/**
+ * Initialize tab functionality
+ * Handles tab switching with animations
+ */
 function initTabFunctionality() {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -504,12 +583,18 @@ function initTabFunctionality() {
 }
 
 // =============================================
-// Touch Device Interactions
+// TOUCH DEVICE INTERACTIONS
 // =============================================
+
+/**
+ * Initialize touch interactions
+ * Handles touch-specific interactions and hover effects
+ */
 function initTouchInteractions() {
     handleTouchInteractions();
     removeHoverEffectsOnTouch();
 
+    // Add device class to body for CSS targeting
     if ('ontouchstart' in window) {
         document.body.classList.add('touch-device');
     } else {
@@ -517,6 +602,9 @@ function initTouchInteractions() {
     }
 }
 
+/**
+ * Handle touch interactions for various elements
+ */
 function handleTouchInteractions() {
     if ('ontouchstart' in window) {
         const touchElements = [
@@ -529,9 +617,9 @@ function handleTouchInteractions() {
             '.testimonial-card'
         ];
 
+        // Add touch events to all interactive elements
         touchElements.forEach(selector => {
             const elements = document.querySelectorAll(selector);
-
             elements.forEach(element => {
                 element.addEventListener('touchstart', function () {
                     this.classList.add('touch-active');
@@ -547,6 +635,7 @@ function handleTouchInteractions() {
             });
         });
 
+        // Add touch events to buttons
         const buttons = document.querySelectorAll('button, .btn, .tab-btn');
         buttons.forEach(button => {
             button.addEventListener('touchstart', function () {
@@ -560,6 +649,10 @@ function handleTouchInteractions() {
     }
 }
 
+/**
+ * Remove hover effects on touch devices
+ * Prevents sticky hover states on touch devices
+ */
 function removeHoverEffectsOnTouch() {
     if ('ontouchstart' in window) {
         const style = document.createElement('style');
@@ -582,16 +675,21 @@ function removeHoverEffectsOnTouch() {
 }
 
 // =============================================
-// Lazy Loading for Images
+// LAZY LOADING FOR IMAGES
 // =============================================
+
+/**
+ * Initialize lazy loading for images
+ * Uses Intersection Observer for performance
+ */
 function initLazyLoading() {
     // Skip if Intersection Observer is not supported
     if (!('IntersectionObserver' in window)) return;
 
     const lazyImages = document.querySelectorAll('img.lazy-load');
-
     if (lazyImages.length === 0) return;
 
+    // Create Intersection Observer for lazy loading
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -603,14 +701,20 @@ function initLazyLoading() {
         });
     });
 
+    // Observe all lazy images
     lazyImages.forEach(img => {
         imageObserver.observe(img);
     });
 }
 
 // =============================================
-// Particle Effects
+// PARTICLE EFFECTS
 // =============================================
+
+/**
+ * Create particle effects for hero section
+ * Adds animated particles to the hero background
+ */
 function createParticles() {
     const heroSection = document.querySelector('.hero');
     if (!heroSection) return;
@@ -619,11 +723,12 @@ function createParticles() {
     particlesContainer.className = 'particles-container';
     heroSection.appendChild(particlesContainer);
 
+    // Create multiple particles with random properties
     for (let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
 
-        // Random properties
+        // Random properties for variety
         const size = Math.random() * 10 + 2;
         const left = Math.random() * 100;
         const animationDuration = Math.random() * 10 + 10;
@@ -640,8 +745,49 @@ function createParticles() {
 }
 
 // =============================================
-// Utility Functions
+// SYMBOL EXPLANATION TOGGLE
 // =============================================
+
+/**
+ * Initialize symbol explanation toggle functionality
+ * Handles show/hide of symbol explanation content
+ */
+function initSymbolExplanationToggle() {
+    const toggleBtn = document.querySelector('.toggle-btn');
+    if (!toggleBtn) return;
+    
+    toggleBtn.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const content = this.nextElementSibling;
+        
+        // Toggle aria-expanded attribute
+        this.setAttribute('aria-expanded', !isExpanded);
+        
+        // Toggle content visibility
+        if (isExpanded) {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+            
+            // Smooth scroll to ensure content is visible
+            setTimeout(() => {
+                content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    });
+}
+
+// =============================================
+// UTILITY FUNCTIONS
+// =============================================
+
+/**
+ * Throttle function for performance optimization
+ * Limits how often a function can be called
+ * @param {Function} func - Function to throttle
+ * @param {number} limit - Time limit in milliseconds
+ * @returns {Function} - Throttled function
+ */
 function throttle(func, limit) {
     let inThrottle;
     return function () {
@@ -655,6 +801,14 @@ function throttle(func, limit) {
     }
 }
 
+/**
+ * Debounce function for performance optimization
+ * Delays function execution until after wait time
+ * @param {Function} func - Function to debounce
+ * @param {number} wait - Wait time in milliseconds
+ * @param {boolean} immediate - Whether to execute immediately
+ * @returns {Function} - Debounced function
+ */
 function debounce(func, wait, immediate) {
     let timeout;
     return function () {
@@ -670,7 +824,10 @@ function debounce(func, wait, immediate) {
     };
 }
 
-// Add floating animation to elements
+/**
+ * Initialize floating animations for elements
+ * Adds floating animation to selected elements
+ */
 function initFloatingAnimations() {
     const floatingElements = document.querySelectorAll('.about-image img, .logo-symbol, .value-item i');
     floatingElements.forEach(el => {
@@ -678,7 +835,10 @@ function initFloatingAnimations() {
     });
 }
 
-// Initialize typing effect for hero text
+/**
+ * Initialize typing effect for hero text
+ * Creates a typewriter effect for hero paragraph
+ */
 function initTypingEffect() {
     const heroText = document.querySelector('.hero p');
     if (heroText) {
