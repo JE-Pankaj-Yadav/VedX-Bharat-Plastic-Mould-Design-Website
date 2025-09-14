@@ -387,58 +387,148 @@ function toggleSubOptions() {
     }
 }
 
-/**
- * Handle form submission
- * @param {Event} e - Form submit event
- */
+
+// Replace the existing handleFormSubmit function with this updated version
 function handleFormSubmit(e) {
     e.preventDefault();
 
-    // Validate all fields
-    const form = e.target;
-    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-    let isValid = true;
+    // Show loading state
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
 
-    inputs.forEach(input => {
-        if (!validateField(input)) {
-            isValid = false;
-            // Focus on first invalid field
-            if (isValid) {
-                input.focus();
-                isValid = false;
-            }
-        }
-    });
+    // Prepare form data with correct field names
+    const params = new URLSearchParams();
 
-    if (!isValid) {
-        // Show error message
-        showErrorModal('Please fill all required fields correctly.');
-        return;
+    // Add basic form fields
+    params.append('name', document.getElementById('name').value);
+    params.append('email', document.getElementById('email').value);
+    params.append('phone', document.getElementById('phone').value);
+    params.append('serviceType', document.getElementById('serviceType').value);
+
+    // Add additional fields that might be missing
+    params.append('application', document.getElementById('application')?.value || '');
+    params.append('volume', document.getElementById('volume')?.value || '');
+    params.append('material', document.getElementById('material')?.value || '');
+    params.append('timeline', document.getElementById('timeline')?.value || '');
+    params.append('message', document.getElementById('message')?.value || '');
+
+    // Add checkbox values
+    const partMaterials = Array.from(document.querySelectorAll('input[name="part-material"]:checked'))
+        .map(cb => cb.value).join(', ');
+    if (partMaterials) params.append('materialType', partMaterials);
+
+    const moldTypes = Array.from(document.querySelectorAll('input[name="mold-type"]:checked'))
+        .map(cb => cb.value).join(', ');
+    if (moldTypes) params.append('moldType', moldTypes);
+
+    const rectificationTypes = Array.from(document.querySelectorAll('input[name="rectification-type"]:checked'))
+        .map(cb => cb.value).join(', ');
+    if (rectificationTypes) params.append('rectificationType', rectificationTypes);
+
+    // Handle file upload
+    const fileInput = document.getElementById('file');
+    if (fileInput && fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            params.append('file', 'Yes');
+            params.append('fileData', e.target.result.split(',')[1]); // Base64 data
+            params.append('fileName', file.name);
+            params.append('fileSize', file.size);
+            params.append('mimeType', file.type);
+
+            // Send the form data
+            sendFormData(params, submitBtn, originalText);
+        };
+        reader.readAsDataURL(file);
+    } else {
+        params.append('file', 'No');
+        sendFormData(params, submitBtn, originalText);
     }
 
-    // Show loading state
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-
-    // Simulate form submission (replace with actual AJAX call)
-    setTimeout(() => {
-        // Reset button state
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-
-        // Show success popup
-        showSuccessModal();
-
-        // Reset form
-        form.reset();
-
-        // Hide sub-options container
-        document.getElementById('subOptionsContainer').style.display = 'none';
-    }, 1500);
+    // Send data to Google Apps Script
+    sendFormData(params, submitBtn, originalText);
 }
+
+// Separate function to send form data
+function sendFormData(params, submitBtn, originalText) {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz2pYXIU3VzE1mvl41TcdArwqmhRQdAyweN-ajFiaX06XD-BLCw0q6oXr5fOvX3Iopu/exec';
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: params
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                showSuccessModal();
+                document.getElementById('quoteForm').reset();
+                document.getElementById('subOptionsContainer').style.display = 'none';
+            } else {
+                throw new Error(data.error || 'Submission failed');
+            }
+        })
+        .catch(error => {
+            showErrorModal('There was an error submitting your request. Please try again.');
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        });
+}
+
+// Update the toggleSubOptions function to show all relevant fields
+function toggleSubOptions() {
+    const serviceType = document.getElementById('serviceType').value;
+    const subOptionsContainer = document.getElementById('subOptionsContainer');
+    const allSubOptions = document.querySelectorAll('.sub-options');
+    const additionalFields = document.querySelectorAll('#subOptionsContainer .form-group');
+
+    // Hide all sub-options first
+    allSubOptions.forEach(option => {
+        option.style.display = 'none';
+    });
+
+    // Show relevant sub-options based on selection
+    if (serviceType === 'part-design') {
+        subOptionsContainer.style.display = 'block';
+        document.getElementById('partDesignOptions').style.display = 'block';
+        // Show all additional fields
+        additionalFields.forEach(field => field.style.display = 'block');
+    } else if (serviceType === 'mold-design') {
+        subOptionsContainer.style.display = 'block';
+        document.getElementById('moldDesignOptions').style.display = 'block';
+        // Show all additional fields
+        additionalFields.forEach(field => field.style.display = 'block');
+    } else if (serviceType === 'mold-rectification') {
+        subOptionsContainer.style.display = 'block';
+        document.getElementById('moldRectificationOptions').style.display = 'block';
+        // Show all additional fields
+        additionalFields.forEach(field => field.style.display = 'block');
+    } else if (serviceType) {
+        // Show the container for other service types but hide specific sub-options
+        subOptionsContainer.style.display = 'block';
+        // Show all additional fields
+        additionalFields.forEach(field => field.style.display = 'block');
+    } else {
+        subOptionsContainer.style.display = 'none';
+    }
+}
+
+// Update the form event listener
+document.addEventListener('DOMContentLoaded', function () {
+    const quoteForm = document.getElementById('quoteForm');
+    if (quoteForm) {
+        quoteForm.addEventListener('submit', handleFormSubmit);
+    }
+
+    // Initialize sub-options visibility
+    toggleSubOptions();
+});
+
 
 /**
  * Show success modal after form submission
@@ -755,20 +845,20 @@ function createParticles() {
 function initSymbolExplanationToggle() {
     const toggleBtn = document.querySelector('.toggle-btn');
     if (!toggleBtn) return;
-    
-    toggleBtn.addEventListener('click', function() {
+
+    toggleBtn.addEventListener('click', function () {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
         const content = this.nextElementSibling;
-        
+
         // Toggle aria-expanded attribute
         this.setAttribute('aria-expanded', !isExpanded);
-        
+
         // Toggle content visibility
         if (isExpanded) {
             content.style.display = 'none';
         } else {
             content.style.display = 'block';
-            
+
             // Smooth scroll to ensure content is visible
             setTimeout(() => {
                 content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
